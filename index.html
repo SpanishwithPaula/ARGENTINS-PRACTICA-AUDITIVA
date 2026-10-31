@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escuchá Argentina · 5 videos y 12 audios · edición ampliada</title>
+<style>
+:root{--cel:#83d0ff;--az:#5bb8ef;--ink:#172033;--cream:#fffdf6;--sun:#ffd95e;--mint:#dcf7e7;--rose:#ffe7ea;--lav:#efe8ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(#ecf8ff,#fffdf8);color:var(--ink);font-size:20px;line-height:1.5}
+header{padding:36px 20px;text-align:center;background:linear-gradient(90deg,var(--cel) 0 33%,white 33% 66%,var(--cel) 66%);border-bottom:7px solid white}
+h1{font-size:clamp(42px,7vw,76px);margin:0;line-height:1} header p{font-size:24px;font-weight:800}
+main{max-width:1180px;margin:auto;padding:24px 18px 80px}
+nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
+nav a{text-decoration:none;color:var(--ink);font-weight:900;background:white;border:2px solid #ccecff;padding:14px;border-radius:16px;text-align:center}
+.card{background:white;border:2px solid #d8efff;border-radius:28px;padding:28px;margin:26px 0;box-shadow:0 12px 34px #25425b14}
+h2{font-size:36px;margin:0 0 12px} h3{font-size:27px;margin-top:24px}
+video{width:min(100%,520px);max-height:690px;display:block;margin:18px auto;border-radius:24px;background:#000}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:13px}
+button,.option{font:inherit;font-weight:800;border:none;border-radius:16px;padding:14px 17px;cursor:pointer}
+button{background:var(--ink);color:white} .option{background:#edf8ff;text-align:left}
+.option:hover{transform:translateY(-2px)} .good{background:var(--mint)!important} .bad{background:var(--rose)!important}
+input,textarea,select{width:100%;font:inherit;border:2px solid #bde2f7;border-radius:14px;padding:12px 14px;margin:7px 0 12px;background:white}
+textarea{min-height:95px}
+.tip{background:#fff4bd;padding:15px 18px;border-radius:16px;font-weight:700}
+.arg{background:#e8f6ff;border-left:7px solid var(--az);padding:16px;border-radius:12px;margin:15px 0}
+.score{position:sticky;top:9px;z-index:10;float:right;background:var(--ink);color:white;border-radius:18px;padding:10px 16px;font-weight:900}
+.pill{display:inline-block;padding:7px 12px;border-radius:999px;background:#edf8ff;font-weight:800;margin:4px}
+.hidden{display:none}
+.big{font-size:30px;font-weight:900;text-align:center}
+hr{border:0;height:3px;background:linear-gradient(90deg,var(--cel),white,var(--cel));margin:28px 0}
+@media(max-width:700px){nav{grid-template-columns:1fr} .score{float:none;display:inline-block;margin-bottom:10px}}
+
+.vocab{width:100%;border-collapse:separate;border-spacing:0 8px;margin:14px 0}
+.vocab th{background:#172033;color:white;padding:12px;font-size:18px}
+.vocab td{background:#f3faff;padding:12px;font-weight:700}
+.vocab td:first-child{border-radius:12px 0 0 12px}
+.vocab td:last-child{border-radius:0 12px 12px 0}
+.qbox{background:#fafcff;border:2px dashed #bde2f7;border-radius:18px;padding:18px;margin:12px 0}
+.helpbtn{background:#5bb8ef;color:#102030;margin:8px 0}
+
+/* Ampliación interactiva */
+.extension{scroll-margin-top:18px}.extension h2{font-size:clamp(29px,4vw,42px)}
+.extlead{font-size:22px}.extaudio{width:100%;margin:14px 0}.extmeta{display:flex;gap:9px;flex-wrap:wrap}
+.extmeta span{background:#eaf6ff;border-radius:30px;padding:7px 12px;font-size:17px;font-weight:750}
+.exttask{border:2px solid #d5e9f5;border-radius:17px;padding:18px;margin:18px 0;background:#fff}
+.exttask label{display:block;font-size:21px;font-weight:750;margin:12px 0 5px}
+.exttask input[type=radio]{width:auto;accent-color:#277eb6;transform:scale(1.3);margin:0 9px 0 4px}
+.exttask .choice{display:block;padding:10px 14px;margin:7px 0;background:#f3faff;border-radius:12px;cursor:pointer}
+.exttask .choice:has(input:checked){background:#d9f3ff}
+.exttask textarea{min-height:100px}.exttask .feedback{font-weight:750;padding:8px 0;min-height:20px}
+.extbutton{background:#176b99;color:white;margin:6px 5px 6px 0}.extghost{background:#e6f3fc;color:#123651}.extcorrect{border-color:#47ac80!important;background:#eafaf0!important}.extwrong{border-color:#dc8479!important;background:#fff1ee!important}
+.extbar{background:#d8edf9;height:17px;border-radius:20px;overflow:hidden}.extbar>div{height:100%;background:#318eac;width:0%;transition:width .2s}
+.extgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.extsmall{font-size:17px;color:#40566a}
+.extsource{font-size:16px;overflow-wrap:anywhere}a{overflow-wrap:anywhere}
+@media print{nav,button,.score,.extbar,audio{display:none!important}.card{box-shadow:none;break-inside:avoid}textarea{min-height:90px}}
+
+/* ACCESIBILIDAD — PALETA REVISADA PARA ALTO CONTRASTE */
+:root{--cel:#b6e4fa;--az:#1c628d;--ink:#14273c;--cream:#fffdf6;--sun:#ffe8a2;--mint:#daf4e6;--rose:#ffe2e6;--lav:#efe8ff}
+body{color:#14273c;background:linear-gradient(180deg,#eaf6fd,#fffdf8)}
+header{color:#14273c;background:linear-gradient(90deg,#b6e4fa 0 33%,#fff 33% 66%,#b6e4fa 66%)}
+header h1,header p{color:#14273c;text-shadow:none}
+nav a,nav a:visited{color:#14273c!important;background:#fff;border-color:#87bcd7}
+nav a:hover,nav a:focus-visible{background:#dceffc;color:#102f4d!important;outline:3px solid #225b84;outline-offset:2px}
+.card,.qbox,.exttask{color:#14273c}
+h1,h2,h3,h4,h5,h6,.big,.pill,.tip,.arg,.extmeta span,.exttask label,.exttask .choice,.vocab td{color:#14273c}
+button,button:visited,.extbutton{background:#164b72;color:#fff!important;border:2px solid #164b72}
+button:hover,.extbutton:hover{background:#0d3655;color:#fff!important}
+button:focus-visible,.option:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #194d78;outline-offset:3px}
+.option,.extghost,.helpbtn{background:#dceefa!important;color:#143451!important;border:2px solid #78accd!important}
+.option:hover,.extghost:hover,.helpbtn:hover{background:#c6e3f6!important;color:#102e4a!important}
+.good,.extcorrect{color:#113b2a!important}.bad,.extwrong{color:#682821!important}
+.extmeta span,.pill,.arg,.tip,.exttask .choice,.exttask .choice:has(input:checked){color:#14273c!important}
+.score{background:#143c5c;color:#fff!important}
+.extbar>div{background:#186288}
+.extsmall,.extsource{color:#30465b}
+input,textarea,select{color:#132d44;background:#fff;border-color:#608dac}
+input::placeholder,textarea::placeholder{color:#536779;opacity:1}
+a{color:#135482}a:hover{color:#073957}
+.vocab th{background:#163e5c;color:#fff}
+@media (prefers-contrast:more){.card,.qbox,.exttask{border-color:#426783}nav a,.option{border-width:3px}}
+</style>
+<style>
+/* Preguntas del taller: texto completo, separado de entradas y botones. */
+#mega-grammar .mega-exercise-list{display:grid;gap:15px;margin:14px 0 24px}
+#mega-grammar .mega-exercise-list .exttask{display:flex;flex-direction:column;align-items:stretch;gap:9px;padding:16px 18px;min-width:0}
+#mega-grammar .mega-exercise-list label{display:block!important;width:100%;white-space:normal!important;overflow-wrap:anywhere;font-size:clamp(19px,2vw,23px)!important;line-height:1.45!important;font-weight:650!important;color:#173451!important}
+#mega-grammar .mega-exercise-list input{display:block;width:100%;min-width:0;box-sizing:border-box;font-size:19px!important;color:#173451;background:#fff}
+#mega-grammar .mega-exercise-list button{align-self:flex-start;min-height:44px;min-width:128px;background:#164b72!important;color:#fff!important;font-weight:700!important}
+#mega-grammar .mega-exercise-list .feedback{min-height:1em;line-height:1.4;overflow-wrap:anywhere;color:#173451}
+</style>
+</head>
+<body>
+<header>
+<h1>🇦🇷 ESCUCHÁ ARGENTINA</h1>
+<p>Humor, velocidad real, voseo y comprensión auditiva</p>
+</header>
+<main>
+<section class="card" id="guardar-inicio" aria-label="Guardar y descargar respuestas" style="margin:18px 0;border:2px solid #164b72;background:#f5fbff;">
+<h2 style="color:#173b57;margin-top:0">💾 Tus respuestas</h2>
+<p style="color:#233b50">Guardá tu trabajo o descargá una copia para enviarla a tu profesora. Estos botones también están disponibles más abajo.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<button type="button" class="extbutton" style="background:#164b72;color:#fff" onclick="extSave();document.getElementById('save-top-status').textContent='✅ Respuestas guardadas en este navegador.'">💾 Guardar respuestas</button>
+<button type="button" class="extbutton extghost" style="background:#e0f0fa;color:#173b57;border:2px solid #164b72" onclick="extExport();document.getElementById('save-top-status').textContent='✅ Archivo de respuestas descargado.'">⬇️ Descargar respuestas</button>
+<button type="button" class="extbutton extghost" style="background:#e0f0fa;color:#173b57;border:2px solid #164b72" onclick="window.print()">🖨️ Guardar como PDF</button>
+</div><p id="save-top-status" role="status" aria-live="polite" style="color:#173b57;font-weight:700;margin-bottom:0"></p>
+</section>
+
+<div class="score">⭐ <span id="score">0</span></div>
+<nav><a href="#mega-start">🧉 8 audios adicionales</a>
+<a href="#video1">Video 1 · calentamiento</a>
+<a href="#video2">Video 2 · kiosco</a>
+<a href="#video3">Video 3 · sketch</a>
+<a href="#video4">Video 4 · humor</a>
+<a href="#video5">Video 5 · conversación</a>
+<a href="#extended-start">🎙️ Laboratorio de audios</a><a href="#rioplatense">🗣️ Voseo y vocabulario</a><a href="#final-challenge">🏁 Proyecto final</a></nav>
+
+<section class="card" id="video1">
+<h2>🎧 VIDEO 1 · Calentamiento</h2>
+<p class="tip">Primera escucha: miralo una sola vez, sin pausar. La meta es captar la situación general.</p>
+<video controls playsinline src="videos/video_01.mp4"></video>
+
+<h3>1. Comprensión global</h3>
+<div class="grid">
+<button class="option" onclick="pick(this,true)">😂 Predomina el humor</button>
+<button class="option" onclick="pick(this,false)">📰 Es una noticia formal</button>
+<button class="option" onclick="pick(this,false)">📚 Es una explicación académica</button>
+</div>
+<p><b>¿Qué pasó?</b></p><textarea placeholder="Contalo con tus palabras..."></textarea>
+
+
+<div class="arg">
+<b>🧉 Ayuda de vocabulario argentino</b>
+<table class="vocab">
+<tr><th>🇦🇷 Argentina</th><th>🌎 Español general</th><th>🇬🇧 English</th></tr>
+<tr><td>che</td><td>oye / eh</td><td>hey</td></tr>
+<tr><td>pibe / piba</td><td>chico / chica</td><td>kid / guy / girl</td></tr>
+<tr><td>laburo</td><td>trabajo</td><td>work / job</td></tr>
+<tr><td>guita</td><td>dinero</td><td>money</td></tr>
+<tr><td>quilombo</td><td>lío / desorden / problema</td><td>mess / trouble</td></tr>
+<tr><td>re + adjetivo</td><td>muy + adjetivo</td><td>really / very</td></tr>
+<tr><td>dale</td><td>vale / de acuerdo / vamos</td><td>okay / come on</td></tr>
+<tr><td>boludo/a*</td><td>tonto/a; también trato informal entre amigos</td><td>idiot / dude*</td></tr>
+<tr><td>bancar</td><td>aguantar / apoyar</td><td>to put up with / support</td></tr>
+<tr><td>posta</td><td>de verdad / en serio</td><td>really / for real</td></tr>
+</table>
+<div style="font-size:16px">*El significado y la intensidad dependen mucho del tono y de la relación entre los hablantes.</div>
+</div>
+<h3>2. Escuchá otra vez</h3>
+<div class="grid">
+<div><b>Una palabra que entendiste claramente</b><input></div>
+<div><b>Una palabra que no lograste reconocer</b><input></div>
+</div>
+<p><b>Escribí una frase o fragmento exactamente como lo escuchaste.</b></p><input>
+
+<h3>3. Voseo rápido</h3>
+<p>Transformá:</p>
+<div class="grid">
+<div>tú tienes → <input data-answer="vos tenés"></div>
+<div>tú quieres → <input data-answer="vos querés"></div>
+<div>tú puedes → <input data-answer="vos podés"></div>
+</div>
+<button onclick="checkAnswers(this.parentElement)">Comprobar</button>
+</section>
+
+
+<div class="qbox">
+<h3>🔎 Más preguntas de escucha</h3>
+<p><b>¿Qué palabra se repite o sobresale más?</b></p><input>
+<p><b>¿Quién controla la conversación y cómo lo notás?</b></p><textarea></textarea>
+<p><b>¿Escuchás una forma con “vos”? Si sí, escribila.</b></p><input>
+<p><b>¿Hay una palabra que conocías pero que no reconociste por la pronunciación?</b></p><input>
+<p><b>¿Qué emoción transmite la voz: sorpresa, fastidio, confianza, burla, nervios...?</b></p><textarea></textarea>
+<p><b>¿Qué información entendiste por el contexto aunque no escucharas todas las palabras?</b></p><textarea></textarea>
+</div>
+
+<section class="card" id="video2">
+<h2>🛒 VIDEO 2 · Los kioscos en Argentina</h2>
+<p class="tip">Este video es más largo. Trabajalo por etapas: primero contexto, después detalles y por último lenguaje coloquial.</p>
+<video controls playsinline src="videos/video_02.mp4"></video>
+
+<h3>1. Antes de escuchar</h3>
+<p>Por el título y las imágenes, ¿qué esperás encontrar?</p>
+<div class="grid">
+<button class="option" onclick="softPick(this)">Una compra cotidiana</button>
+<button class="option" onclick="softPick(this)">Una situación exagerada o graciosa</button>
+<button class="option" onclick="softPick(this)">Interacción con un vendedor</button>
+<button class="option" onclick="softPick(this)">Lenguaje informal</button>
+</div>
+
+<h3>2. Primera escucha: sin pausar</h3>
+<p><b>¿Cuál es el objetivo principal de la escena?</b></p>
+<textarea placeholder="Explicalo en 1–2 frases..."></textarea>
+<p><b>¿Qué actitud tienen los participantes?</b></p>
+<select><option>Elegí...</option><option>formal</option><option>relajada</option><option>impaciente</option><option>confundida</option><option>exagerada/humorística</option></select>
+
+
+<div class="arg">
+<b>🧉 Ayuda de vocabulario argentino</b>
+<table class="vocab">
+<tr><th>🇦🇷 Argentina</th><th>🌎 Español general</th><th>🇬🇧 English</th></tr>
+<tr><td>che</td><td>oye / eh</td><td>hey</td></tr>
+<tr><td>pibe / piba</td><td>chico / chica</td><td>kid / guy / girl</td></tr>
+<tr><td>laburo</td><td>trabajo</td><td>work / job</td></tr>
+<tr><td>guita</td><td>dinero</td><td>money</td></tr>
+<tr><td>quilombo</td><td>lío / desorden / problema</td><td>mess / trouble</td></tr>
+<tr><td>re + adjetivo</td><td>muy + adjetivo</td><td>really / very</td></tr>
+<tr><td>dale</td><td>vale / de acuerdo / vamos</td><td>okay / come on</td></tr>
+<tr><td>boludo/a*</td><td>tonto/a; también trato informal entre amigos</td><td>idiot / dude*</td></tr>
+<tr><td>bancar</td><td>aguantar / apoyar</td><td>to put up with / support</td></tr>
+<tr><td>posta</td><td>de verdad / en serio</td><td>really / for real</td></tr>
+</table>
+<div style="font-size:16px">*El significado y la intensidad dependen mucho del tono y de la relación entre los hablantes.</div>
+</div>
+<h3>3. Segunda escucha: caza de información</h3>
+<p>Escribí lo que logres oír en cada categoría.</p>
+<div class="grid">
+<div><b>Producto(s) o cosa(s) mencionadas</b><textarea></textarea></div>
+<div><b>Números / cantidades / precios</b><textarea></textarea></div>
+<div><b>Palabras muy argentinas o informales</b><textarea></textarea></div>
+<div><b>Una reacción del vendedor o cliente</b><textarea></textarea></div>
+</div>
+
+<h3>4. “Subtítulos humanos”</h3>
+<p>Pausá cada 10–15 segundos y escribí un fragmento tal como lo escuchás. No corrijas todavía.</p>
+<textarea placeholder="Fragmento 1..."></textarea>
+<textarea placeholder="Fragmento 2..."></textarea>
+<textarea placeholder="Fragmento 3..."></textarea>
+
+<div class="arg"><b>🇦🇷 Pista de oído:</b> no busques escuchar cada sílaba. En el habla rápida, varias palabras se encadenan. Prestá atención a la palabra fuerte de cada grupo y reconstruí desde ahí.</div>
+
+<h3>5. Del argentino al español neutro</h3>
+<p>Uní mentalmente estas equivalencias frecuentes. Después marcá cuáles aparecen realmente en el video.</p>
+<div>
+<span class="pill">vos → tú</span><span class="pill">acá → aquí</span><span class="pill">laburo → trabajo</span><span class="pill">pibe → chico</span><span class="pill">re → muy</span><span class="pill">dale → de acuerdo / vamos</span><span class="pill">che → oye</span>
+</div>
+<p><b>¿Cuáles escuchaste de verdad?</b></p><input placeholder="Solo escribí las que efectivamente aparecen">
+
+<h3>6. Conversación</h3>
+<div class="grid">
+<div class="option">¿Cómo es comprar en un kiosco en tu país?</div>
+<div class="option">¿Qué diferencias culturales notaste?</div>
+<div class="option">¿Qué parte del audio fue más difícil y por qué?</div>
+<div class="option">¿Qué palabra usarías vos en lugar de una expresión argentina del video?</div>
+</div>
+</section>
+
+
+<div class="qbox">
+<h3>🔎 Más preguntas de escucha</h3>
+<p><b>¿Qué palabra se repite o sobresale más?</b></p><input>
+<p><b>¿Quién controla la conversación y cómo lo notás?</b></p><textarea></textarea>
+<p><b>¿Escuchás una forma con “vos”? Si sí, escribila.</b></p><input>
+<p><b>¿Hay una palabra que conocías pero que no reconociste por la pronunciación?</b></p><input>
+<p><b>¿Qué emoción transmite la voz: sorpresa, fastidio, confianza, burla, nervios...?</b></p><textarea></textarea>
+<p><b>¿Qué información entendiste por el contexto aunque no escucharas todas las palabras?</b></p><textarea></textarea>
+</div>
+
+<section class="card" id="video3">
+<h2>🎭 VIDEO 3 · Sketch argentino</h2>
+<p class="tip">Acá el reto no es solo entender “qué dicen”, sino entender <b>por qué es gracioso</b>: tono, pausas, caras, contexto e intención.</p>
+<video controls playsinline src="videos/video_03.mp4"></video>
+
+<h3>1. Mirá sin sonido</h3>
+<p>Primero silenciá el video durante unos segundos.</p>
+<div class="grid">
+<div><b>¿Qué relación imaginás entre los personajes?</b><input></div>
+<div><b>¿Qué emoción parece dominar?</b><input></div>
+<div><b>¿Qué creés que está pasando?</b><textarea></textarea></div>
+</div>
+
+<h3>2. Ahora sí: escuchá</h3>
+<p><b>¿Tu hipótesis era correcta?</b></p>
+<textarea placeholder="Qué cambió después de escuchar..."></textarea>
+
+
+<div class="arg">
+<b>🧉 Ayuda de vocabulario argentino</b>
+<table class="vocab">
+<tr><th>🇦🇷 Argentina</th><th>🌎 Español general</th><th>🇬🇧 English</th></tr>
+<tr><td>che</td><td>oye / eh</td><td>hey</td></tr>
+<tr><td>pibe / piba</td><td>chico / chica</td><td>kid / guy / girl</td></tr>
+<tr><td>laburo</td><td>trabajo</td><td>work / job</td></tr>
+<tr><td>guita</td><td>dinero</td><td>money</td></tr>
+<tr><td>quilombo</td><td>lío / desorden / problema</td><td>mess / trouble</td></tr>
+<tr><td>re + adjetivo</td><td>muy + adjetivo</td><td>really / very</td></tr>
+<tr><td>dale</td><td>vale / de acuerdo / vamos</td><td>okay / come on</td></tr>
+<tr><td>boludo/a*</td><td>tonto/a; también trato informal entre amigos</td><td>idiot / dude*</td></tr>
+<tr><td>bancar</td><td>aguantar / apoyar</td><td>to put up with / support</td></tr>
+<tr><td>posta</td><td>de verdad / en serio</td><td>really / for real</td></tr>
+</table>
+<div style="font-size:16px">*El significado y la intensidad dependen mucho del tono y de la relación entre los hablantes.</div>
+</div>
+<h3>3. Detectá la intención</h3>
+<p>Elegí lo que mejor describa la forma de hablar.</p>
+<div class="grid">
+<button class="option" onclick="softPick(this)">irónica</button>
+<button class="option" onclick="softPick(this)">dramática</button>
+<button class="option" onclick="softPick(this)">cotidiana</button>
+<button class="option" onclick="softPick(this)">exagerada</button>
+<button class="option" onclick="softPick(this)">seria</button>
+<button class="option" onclick="softPick(this)">confundida</button>
+</div>
+
+<h3>4. Una frase, tres niveles</h3>
+<p>Elegí una frase que escuches y completá:</p>
+<input placeholder="Frase literal">
+<input placeholder="¿Qué significa literalmente?">
+<input placeholder="¿Qué quiere decir realmente en la escena?">
+
+<h3>5. El chiste está en...</h3>
+<textarea placeholder="Explicá qué hace graciosa la escena: situación, reacción, tono, exageración, malentendido..."></textarea>
+
+<h3>6. Dictado selectivo</h3>
+<p>No escribas todo. Elegí <b>20–30 segundos</b> del video y tratá de transcribirlos.</p>
+<textarea style="min-height:160px" placeholder="Transcripción de tu fragmento..."></textarea>
+
+<h3>7. Repetición con sombra</h3>
+<p class="arg"><b>Shadowing:</b> reproducí una frase corta, pausá y repetila copiando el ritmo y la entonación. No hace falta imitar el acento de forma caricaturesca.</p>
+<div class="grid">
+<div><b>Frase elegida</b><input></div>
+<div><b>¿Qué sonido o ritmo fue difícil?</b><input></div>
+</div>
+
+<h3>8. Roleplay</h3>
+<p>Inventá una continuación de 30–45 segundos usando al menos dos de estas formas:</p>
+<div><span class="pill">vos</span><span class="pill">che</span><span class="pill">dale</span><span class="pill">acá</span><span class="pill">re + adjetivo</span></div>
+<textarea placeholder="Ideas o palabras clave para tu continuación..."></textarea>
+</section>
+
+
+<div class="qbox">
+<h3>🔎 Más preguntas de escucha</h3>
+<p><b>¿Qué palabra se repite o sobresale más?</b></p><input>
+<p><b>¿Quién controla la conversación y cómo lo notás?</b></p><textarea></textarea>
+<p><b>¿Escuchás una forma con “vos”? Si sí, escribila.</b></p><input>
+<p><b>¿Hay una palabra que conocías pero que no reconociste por la pronunciación?</b></p><input>
+<p><b>¿Qué emoción transmite la voz: sorpresa, fastidio, confianza, burla, nervios...?</b></p><textarea></textarea>
+<p><b>¿Qué información entendiste por el contexto aunque no escucharas todas las palabras?</b></p><textarea></textarea>
+</div>
+
+
+<section class="card" id="video4">
+<h2>🤣 VIDEO 4 · Humor argentino</h2>
+<p class="tip">Primera vuelta: no pauses. Intentá descubrir quiénes son los personajes, qué quieren y dónde aparece el conflicto o el chiste.</p>
+<video controls playsinline src="videos/video_04.mp4"></video>
+
+<div class="arg">
+<b>🧉 Ayuda de vocabulario argentino</b>
+<table class="vocab">
+<tr><th>🇦🇷 Argentina</th><th>🌎 Español general</th><th>🇬🇧 English</th></tr>
+<tr><td>che</td><td>oye / eh</td><td>hey</td></tr>
+<tr><td>pibe / piba</td><td>chico / chica</td><td>kid / guy / girl</td></tr>
+<tr><td>laburo</td><td>trabajo</td><td>work / job</td></tr>
+<tr><td>guita</td><td>dinero</td><td>money</td></tr>
+<tr><td>quilombo</td><td>lío / desorden / problema</td><td>mess / trouble</td></tr>
+<tr><td>re + adjetivo</td><td>muy + adjetivo</td><td>really / very</td></tr>
+<tr><td>dale</td><td>vale / de acuerdo / vamos</td><td>okay / come on</td></tr>
+<tr><td>boludo/a*</td><td>tonto/a; también trato informal entre amigos</td><td>idiot / dude*</td></tr>
+<tr><td>bancar</td><td>aguantar / apoyar</td><td>to put up with / support</td></tr>
+<tr><td>posta</td><td>de verdad / en serio</td><td>really / for real</td></tr>
+</table>
+<div style="font-size:16px">*El significado y la intensidad dependen mucho del tono y de la relación entre los hablantes.</div>
+</div>
+
+
+<h3>1. Comprensión general</h3>
+<div class="qbox">
+<p><b>1. ¿Dónde parece ocurrir la escena?</b></p><input>
+<p><b>2. ¿Quién inicia la interacción?</b></p><input>
+<p><b>3. ¿Qué quiere conseguir cada personaje?</b></p><textarea></textarea>
+<p><b>4. ¿La situación empieza normal y después se vuelve absurda? Explicá.</b></p><textarea></textarea>
+</div>
+
+<h3>2. Segunda escucha · detalles</h3>
+<div class="qbox">
+<p><b>5. Escribí tres palabras que escuches claramente.</b></p><input placeholder="1. ...  2. ...  3. ...">
+<p><b>6. Escribí una frase completa o casi completa.</b></p><input>
+<p><b>7. ¿Qué parte se dice más rápido?</b></p><textarea></textarea>
+<p><b>8. ¿Qué reacción verbal o no verbal te ayuda a entender la escena?</b></p><textarea></textarea>
+<p><b>9. ¿Escuchás voseo? Copiá la forma verbal.</b></p><input>
+<p><b>10. ¿Qué palabra necesitarías escuchar otra vez?</b></p><input>
+</div>
+
+<h3>3. Significado e intención</h3>
+<div class="qbox">
+<p><b>11. Elegí una expresión del video. ¿Qué significa literalmente?</b></p><input>
+<p><b>12. ¿Qué significa realmente dentro de la escena?</b></p><input>
+<p><b>13. ¿El humor depende más de las palabras, del tono o de la situación?</b></p><textarea></textarea>
+<p><b>14. ¿Cómo contarías el chiste en español general?</b></p><textarea></textarea>
+<p><b>15. ¿Qué cambiaría si los personajes hablaran de manera formal?</b></p><textarea></textarea>
+</div>
+
+<h3>4. Tu oído argentino</h3>
+<p>Después de la última escucha, calificá:</p>
+<div class="grid"><button onclick="softPick(this)" class="option">Entendí el tema</button><button onclick="softPick(this)" class="option">Entendí detalles</button><button onclick="softPick(this)" class="option">Reconocí expresiones</button><button onclick="softPick(this)" class="option">Entendí el chiste</button></div>
+</section>
+
+<section class="card" id="video5">
+<h2>🗣️ VIDEO 5 · Español argentino a velocidad real</h2>
+<p class="tip">En este video vamos a separar tres cosas: <b>qué dicen</b>, <b>cómo lo dicen</b> y <b>qué quieren decir</b>.</p>
+<video controls playsinline src="videos/video_05.mp4"></video>
+
+<div class="arg">
+<b>🧉 Ayuda de vocabulario argentino</b>
+<table class="vocab">
+<tr><th>🇦🇷 Argentina</th><th>🌎 Español general</th><th>🇬🇧 English</th></tr>
+<tr><td>che</td><td>oye / eh</td><td>hey</td></tr>
+<tr><td>pibe / piba</td><td>chico / chica</td><td>kid / guy / girl</td></tr>
+<tr><td>laburo</td><td>trabajo</td><td>work / job</td></tr>
+<tr><td>guita</td><td>dinero</td><td>money</td></tr>
+<tr><td>quilombo</td><td>lío / desorden / problema</td><td>mess / trouble</td></tr>
+<tr><td>re + adjetivo</td><td>muy + adjetivo</td><td>really / very</td></tr>
+<tr><td>dale</td><td>vale / de acuerdo / vamos</td><td>okay / come on</td></tr>
+<tr><td>boludo/a*</td><td>tonto/a; también trato informal entre amigos</td><td>idiot / dude*</td></tr>
+<tr><td>bancar</td><td>aguantar / apoyar</td><td>to put up with / support</td></tr>
+<tr><td>posta</td><td>de verdad / en serio</td><td>really / for real</td></tr>
+</table>
+<div style="font-size:16px">*El significado y la intensidad dependen mucho del tono y de la relación entre los hablantes.</div>
+</div>
+
+
+<h3>1. Primera escucha · mapa de la escena</h3>
+<div class="qbox">
+<p><b>1. ¿Cuántas personas participan activamente?</b></p><input>
+<p><b>2. ¿Cuál es el tema principal?</b></p><textarea></textarea>
+<p><b>3. ¿La conversación parece preparada o espontánea? ¿Por qué?</b></p><textarea></textarea>
+<p><b>4. ¿Qué relación parece haber entre los hablantes?</b></p><input>
+<p><b>5. ¿Qué emoción domina al principio?</b></p><input>
+</div>
+
+<h3>2. Segunda escucha · lupa lingüística</h3>
+<div class="qbox">
+<p><b>6. Anotá cinco palabras exactas que reconozcas.</b></p><textarea></textarea>
+<p><b>7. ¿Escuchás “vos”, una conjugación de voseo o una expresión coloquial?</b></p><input>
+<p><b>8. ¿Qué palabra se “come” o se une con la siguiente?</b></p><input>
+<p><b>9. Copiá un fragmento corto intentando representar exactamente lo que oís.</b></p><textarea></textarea>
+<p><b>10. ¿Qué palabra pudiste entender gracias a la imagen o al contexto?</b></p><input>
+</div>
+
+<h3>3. Tercera escucha · comprensión profunda</h3>
+<div class="qbox">
+<p><b>11. ¿Qué información nueva descubriste en la tercera escucha?</b></p><textarea></textarea>
+<p><b>12. ¿Hay ironía, exageración o doble intención?</b></p><textarea></textarea>
+<p><b>13. ¿En qué momento cambia el tono?</b></p><input>
+<p><b>14. Elegí una frase y pasala a español más general.</b></p><input placeholder="Argentina → español general">
+<p><b>15. Ahora traducí el sentido de esa frase al inglés.</b></p><input placeholder="English meaning">
+</div>
+
+<h3>4. Producción oral</h3>
+<div class="grid">
+<div class="option">Contá la escena en 30 segundos.</div>
+<div class="option">Imitá el ritmo de una frase mediante shadowing.</div>
+<div class="option">Inventá una respuesta usando “vos”.</div>
+<div class="option">Explicale a un angloparlante una expresión del video.</div>
+</div>
+</section>
+
+<section class="card">
+<h2>🏁 RETO FINAL · Tres acentos en tu oído</h2>
+<p>Volvé a un fragmento de cada uno de los <b>5 videos</b> y completá sin pausar más de una vez.</p>
+<div class="grid">
+<div><b>Video 1 — resumen en 10 palabras</b><textarea></textarea></div>
+<div><b>Video 2 — 3 palabras que ahora reconocés mejor</b><textarea></textarea></div>
+<div><b>Video 3 — explicá el chiste en una frase</b><textarea></textarea></div><div><b>Video 4 — expresión argentina + español general + inglés</b><textarea></textarea></div><div><b>Video 5 — frase que ahora entendés sin ayuda</b><textarea></textarea></div></div>
+<p class="big">¿Cuánto entendés ahora?</p>
+<div class="grid">
+<button onclick="finish(1)">1 😵</button><button onclick="finish(2)">2</button><button onclick="finish(3)">3 🙂</button><button onclick="finish(4)">4 😎</button><button onclick="finish(5)">5 🇦🇷🔥</button>
+</div>
+<div id="finish" class="hidden tip" style="margin-top:16px;text-align:center;font-size:25px"></div>
+</section>
+<section class="card extension" id="extended-start"><h2>🎙️ ACTIVIDAD DE ESCUCHA · VOCES DE ARGENTINA</h2><p class="extlead">Escuchá las grabaciones y completá las actividades de comprensión, vocabulario y pronunciación. Después, expresá tus ideas con tus propias palabras.</p><div class="tip">📋 Método: 1. Escuchá sin leer ni pausar. 2. Escuchá otra vez y completá. 3. Volvé a escuchar para revisar. Algunas respuestas abiertas no tienen una única solución: se guardan para que las evalúe tu docente.</div><p class="extsmall">Los audios requieren conexión a internet. Si alguno no se reproduce, abrí el enlace a la fuente.</p><p><strong>Tu progreso:</strong> <span id="extprogressText">0/0</span></p><div class="extbar"><div id="extprogressBar"></div></div><button class="extbutton" onclick="extSave()">💾 Guardar respuestas</button><button class="extbutton extghost" onclick="extExport()">⬇️ Exportar respuestas</button><button class="extbutton extghost" onclick="window.print()">🖨️ Imprimir / Guardar en PDF</button><button class="extbutton extghost" onclick="extReset()">↺ Restablecer extensión</button><p id="extstatus" aria-live="polite" class="extsmall"></p></section>
+<section class="card extension" id="audio6"><h2>AUDIO 6 · 🎃 Halloween en Argentina</h2><div class="extmeta"><span>B1–B2</span><span>Escucha real</span><span>Escucha global + detallada + crítica</span></div><p class="extlead">¿Cómo se celebra Halloween en Argentina y en otros lugares?</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/2026-10-30-Mariana-Pineda.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p class="extsource">🎧 <a target="_blank" rel="noopener" href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/2026-10-30-Mariana-Pineda.mp3">Abrir MP3 en otra pestaña</a> · <a href="https://www.radionacional.com.ar/" target="_blank" rel="noopener">Fuente: Entrevista cultural · Radio Nacional</a></p><div class="exttask"><h3>1 · Antes de escuchar</h3><label for="prediction6">¿Qué palabras y argumentos esperás escuchar? Escribí al menos cinco.</label><textarea id="prediction6" class="extsave" placeholder="Predicciones, vocabulario y conocimientos previos..."></textarea></div><div class="exttask"><h3>2 · Primera escucha: comprensión global</h3><p>Según el título y la presentación del audio, ¿cuál es el tema central?</p><label class="choice"><input class="extsave extmc" type="radio" name="global6" value="0" data-correct="0">La entrevista aborda una festividad</label><label class="choice"><input class="extsave extmc" type="radio" name="global6" value="1" data-correct="0">La entrevista es una receta de cocina</label><label class="choice"><input class="extsave extmc" type="radio" name="global6" value="2" data-correct="0">La entrevista describe un partido</label><button class="extbutton" onclick="extCheckRadio('global6',this)">Comprobar</button><div class="feedback" aria-live="polite"></div><p class="extsmall">Este control comprueba la identificación del tema anunciado; las preguntas siguientes exigen escuchar la grabación.</p></div><div class="exttask"><h3>3 · Segunda escucha: buscar evidencias</h3><p>Anotá detalles exactos y, si podés, la marca de tiempo (min:seg) donde los oíste.</p><label for="open6_0">1. ¿Qué diferencias culturales se mencionan?</label><textarea class="extsave" id="open6_0" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open6_1">2. ¿Qué opiniones o valoraciones escuchás?</label><textarea class="extsave" id="open6_1" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open6_2">3. Anotá dos datos comprobables y una opinión.</label><textarea class="extsave" id="open6_2" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea></div><div class="exttask"><h3>4 · Microdictado y acento</h3><label for="dict6">Elegí 10–20 segundos interesantes. Transcribí literalmente lo que escuchás (no reescribas ni corrijas su manera de hablar).</label><textarea class="extsave" id="dict6" placeholder="Minuto elegido: ... / Transcripción: ..."></textarea><label for="accent6">¿Escuchaste voseo, pronunciación de «ll/y», reducción de sonidos, muletillas o un cambio de ritmo? Registrá ejemplos reales.</label><textarea class="extsave" id="accent6" placeholder="Se escucha... en el minuto..."></textarea></div><div class="exttask"><h3>5 · Tercera escucha: interpretación</h3><label for="tone6">¿Cuál es el tono del entrevistador y del entrevistado? ¿Cómo lo sabés?</label><textarea class="extsave" id="tone6"></textarea><label for="summary6">Resumí el audio en 60–90 palabras, diferenciando hechos de opiniones.</label><textarea class="extsave" id="summary6"></textarea><label for="question6">Escribí dos preguntas nuevas que le harías a la persona entrevistada.</label><textarea class="extsave" id="question6"></textarea></div></section>
+<section class="card extension" id="audio7"><h2>AUDIO 7 · 🤖 Innovación y ciencia</h2><div class="extmeta"><span>B1–C1</span><span>Escucha real</span><span>Escucha global + detallada + crítica</span></div><p class="extlead">Un estudiante de ingeniería ganó un concurso de la NASA.</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2023/12/Nasa-premio.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p class="extsource">🎧 <a target="_blank" rel="noopener" href="https://cdn.radionacional.com.ar/wp-content/uploads/2023/12/Nasa-premio.mp3">Abrir MP3 en otra pestaña</a> · <a href="https://www.radionacional.com.ar/category/podcasts/" target="_blank" rel="noopener">Fuente: Entrevista a estudiantes · Radio Nacional</a></p><div class="exttask"><h3>1 · Antes de escuchar</h3><label for="prediction7">¿Qué palabras y argumentos esperás escuchar? Escribí al menos cinco.</label><textarea id="prediction7" class="extsave" placeholder="Predicciones, vocabulario y conocimientos previos..."></textarea></div><div class="exttask"><h3>2 · Primera escucha: comprensión global</h3><p>Según el título y la presentación del audio, ¿cuál es el tema central?</p><label class="choice"><input class="extsave extmc" type="radio" name="global7" value="0" data-correct="0">El tema anunciado es un logro en ingeniería</label><label class="choice"><input class="extsave extmc" type="radio" name="global7" value="1" data-correct="0">El tema anunciado es una receta</label><label class="choice"><input class="extsave extmc" type="radio" name="global7" value="2" data-correct="0">El tema anunciado es un festival de cine</label><button class="extbutton" onclick="extCheckRadio('global7',this)">Comprobar</button><div class="feedback" aria-live="polite"></div><p class="extsmall">Este control comprueba la identificación del tema anunciado; las preguntas siguientes exigen escuchar la grabación.</p></div><div class="exttask"><h3>3 · Segunda escucha: buscar evidencias</h3><p>Anotá detalles exactos y, si podés, la marca de tiempo (min:seg) donde los oíste.</p><label for="open7_0">1. ¿Cuál es el logro del entrevistado?</label><textarea class="extsave" id="open7_0" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open7_1">2. ¿Qué pasos describe antes de conseguirlo?</label><textarea class="extsave" id="open7_1" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open7_2">3. ¿Qué consejo podría extraer un estudiante?</label><textarea class="extsave" id="open7_2" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea></div><div class="exttask"><h3>4 · Microdictado y acento</h3><label for="dict7">Elegí 10–20 segundos interesantes. Transcribí literalmente lo que escuchás (no reescribas ni corrijas su manera de hablar).</label><textarea class="extsave" id="dict7" placeholder="Minuto elegido: ... / Transcripción: ..."></textarea><label for="accent7">¿Escuchaste voseo, pronunciación de «ll/y», reducción de sonidos, muletillas o un cambio de ritmo? Registrá ejemplos reales.</label><textarea class="extsave" id="accent7" placeholder="Se escucha... en el minuto..."></textarea></div><div class="exttask"><h3>5 · Tercera escucha: interpretación</h3><label for="tone7">¿Cuál es el tono del entrevistador y del entrevistado? ¿Cómo lo sabés?</label><textarea class="extsave" id="tone7"></textarea><label for="summary7">Resumí el audio en 60–90 palabras, diferenciando hechos de opiniones.</label><textarea class="extsave" id="summary7"></textarea><label for="question7">Escribí dos preguntas nuevas que le harías a la persona entrevistada.</label><textarea class="extsave" id="question7"></textarea></div></section>
+<section class="card extension" id="audio8"><h2>AUDIO 8 · 📚 Cultura y arte</h2><div class="extmeta"><span>B2–C1</span><span>Escucha real</span><span>Escucha global + detallada + crítica</span></div><p class="extlead">El papel de los artistas y los espacios culturales.</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/2026-10-29-Cultura-Nacional-.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p class="extsource">🎧 <a target="_blank" rel="noopener" href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/2026-10-29-Cultura-Nacional-.mp3">Abrir MP3 en otra pestaña</a> · <a href="https://www.radionacional.com.ar/" target="_blank" rel="noopener">Fuente: Entrevista cultural · Radio Nacional</a></p><div class="exttask"><h3>1 · Antes de escuchar</h3><label for="prediction8">¿Qué palabras y argumentos esperás escuchar? Escribí al menos cinco.</label><textarea id="prediction8" class="extsave" placeholder="Predicciones, vocabulario y conocimientos previos..."></textarea></div><div class="exttask"><h3>2 · Primera escucha: comprensión global</h3><p>Según el título y la presentación del audio, ¿cuál es el tema central?</p><label class="choice"><input class="extsave extmc" type="radio" name="global8" value="0" data-correct="0">La entrevista se relaciona con el arte</label><label class="choice"><input class="extsave extmc" type="radio" name="global8" value="1" data-correct="0">Se trata únicamente del clima</label><label class="choice"><input class="extsave extmc" type="radio" name="global8" value="2" data-correct="0">Es una transmisión deportiva</label><button class="extbutton" onclick="extCheckRadio('global8',this)">Comprobar</button><div class="feedback" aria-live="polite"></div><p class="extsmall">Este control comprueba la identificación del tema anunciado; las preguntas siguientes exigen escuchar la grabación.</p></div><div class="exttask"><h3>3 · Segunda escucha: buscar evidencias</h3><p>Anotá detalles exactos y, si podés, la marca de tiempo (min:seg) donde los oíste.</p><label for="open8_0">1. ¿Cómo se relacionan arte y cambio social?</label><textarea class="extsave" id="open8_0" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open8_1">2. ¿Qué argumentos escuchás a favor de los espacios culturales?</label><textarea class="extsave" id="open8_1" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open8_2">3. ¿Estás de acuerdo con alguna idea? Justificá.</label><textarea class="extsave" id="open8_2" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea></div><div class="exttask"><h3>4 · Microdictado y acento</h3><label for="dict8">Elegí 10–20 segundos interesantes. Transcribí literalmente lo que escuchás (no reescribas ni corrijas su manera de hablar).</label><textarea class="extsave" id="dict8" placeholder="Minuto elegido: ... / Transcripción: ..."></textarea><label for="accent8">¿Escuchaste voseo, pronunciación de «ll/y», reducción de sonidos, muletillas o un cambio de ritmo? Registrá ejemplos reales.</label><textarea class="extsave" id="accent8" placeholder="Se escucha... en el minuto..."></textarea></div><div class="exttask"><h3>5 · Tercera escucha: interpretación</h3><label for="tone8">¿Cuál es el tono del entrevistador y del entrevistado? ¿Cómo lo sabés?</label><textarea class="extsave" id="tone8"></textarea><label for="summary8">Resumí el audio en 60–90 palabras, diferenciando hechos de opiniones.</label><textarea class="extsave" id="summary8"></textarea><label for="question8">Escribí dos preguntas nuevas que le harías a la persona entrevistada.</label><textarea class="extsave" id="question8"></textarea></div></section>
+<section class="card extension" id="audio9"><h2>AUDIO 9 · 🎙️ Emergencias y sociedad</h2><div class="extmeta"><span>B2–C1</span><span>Escucha real</span><span>Escucha global + detallada + crítica</span></div><p class="extlead">Profesionales de emergencias y su encuadre en el sistema de salud.</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/SILVIO-AGUILERA.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p class="extsource">🎧 <a target="_blank" rel="noopener" href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/SILVIO-AGUILERA.mp3">Abrir MP3 en otra pestaña</a> · <a href="https://www.radionacional.com.ar/" target="_blank" rel="noopener">Fuente: Entrevista informativa · Radio Nacional</a></p><div class="exttask"><h3>1 · Antes de escuchar</h3><label for="prediction9">¿Qué palabras y argumentos esperás escuchar? Escribí al menos cinco.</label><textarea id="prediction9" class="extsave" placeholder="Predicciones, vocabulario y conocimientos previos..."></textarea></div><div class="exttask"><h3>2 · Primera escucha: comprensión global</h3><p>Según el título y la presentación del audio, ¿cuál es el tema central?</p><label class="choice"><input class="extsave extmc" type="radio" name="global9" value="0" data-correct="0">Hablan sobre personal de emergencias</label><label class="choice"><input class="extsave extmc" type="radio" name="global9" value="1" data-correct="0">Es un concurso musical</label><label class="choice"><input class="extsave extmc" type="radio" name="global9" value="2" data-correct="0">Hablan de fútbol internacional</label><button class="extbutton" onclick="extCheckRadio('global9',this)">Comprobar</button><div class="feedback" aria-live="polite"></div><p class="extsmall">Este control comprueba la identificación del tema anunciado; las preguntas siguientes exigen escuchar la grabación.</p></div><div class="exttask"><h3>3 · Segunda escucha: buscar evidencias</h3><p>Anotá detalles exactos y, si podés, la marca de tiempo (min:seg) donde los oíste.</p><label for="open9_0">1. ¿Qué función desempeñan los técnicos en emergencias?</label><textarea class="extsave" id="open9_0" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open9_1">2. ¿Qué cambios o necesidades se plantean?</label><textarea class="extsave" id="open9_1" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea><label for="open9_2">3. ¿Qué palabras técnicas aprendiste?</label><textarea class="extsave" id="open9_2" placeholder="Respuesta + evidencia + marca de tiempo..."></textarea></div><div class="exttask"><h3>4 · Microdictado y acento</h3><label for="dict9">Elegí 10–20 segundos interesantes. Transcribí literalmente lo que escuchás (no reescribas ni corrijas su manera de hablar).</label><textarea class="extsave" id="dict9" placeholder="Minuto elegido: ... / Transcripción: ..."></textarea><label for="accent9">¿Escuchaste voseo, pronunciación de «ll/y», reducción de sonidos, muletillas o un cambio de ritmo? Registrá ejemplos reales.</label><textarea class="extsave" id="accent9" placeholder="Se escucha... en el minuto..."></textarea></div><div class="exttask"><h3>5 · Tercera escucha: interpretación</h3><label for="tone9">¿Cuál es el tono del entrevistador y del entrevistado? ¿Cómo lo sabés?</label><textarea class="extsave" id="tone9"></textarea><label for="summary9">Resumí el audio en 60–90 palabras, diferenciando hechos de opiniones.</label><textarea class="extsave" id="summary9"></textarea><label for="question9">Escribí dos preguntas nuevas que le harías a la persona entrevistada.</label><textarea class="extsave" id="question9"></textarea></div></section>
+<section class="card extension" id="rioplatense"><h2>🗣️ Taller de español rioplatense</h2><p>Completá estas actividades de vocabulario y voseo. Escuchá también las grabaciones originales de la colección de pronunciación del español rioplatense en <a href="https://commons.wikimedia.org/wiki/Category:Rioplatense_Spanish_pronunciation" target="_blank" rel="noopener">Wikimedia Commons</a> (licencias específicas según cada archivo).</p><h3>A · Traductor de expresiones (8 ejercicios autocorregibles)</h3><div id="vocabtasks" class="extgrid"></div><h3>B · Del español general al voseo (8 ejercicios)</h3><div id="voseotasks" class="extgrid"></div><h3>C · Atención a los matices</h3><div class="exttask"><label for="register">Explicá en qué contextos usarías «che», «boludo/a» o «quilombo». ¿Podrían sonar inapropiados? ¿Por qué?</label><textarea class="extsave" id="register"></textarea><label for="accentcontrast">Compará el español de Argentina con otra variedad que conozcas: tres semejanzas y tres diferencias, sin hacer generalizaciones absolutas.</label><textarea class="extsave" id="accentcontrast"></textarea></div></section>
+<section class="card extension" id="final-challenge"><h2>🏁 Misión final · Tu guía para entender Argentina</h2><p class="extlead">Elegí dos videos y dos audios de esta página. Creá una guía para una persona que va a viajar a Argentina.</p><div class="exttask"><label for="finalone">1. Escribí un glosario de al menos 12 expresiones (argentino · español general · inglés · contexto).</label><textarea class="extsave" id="finalone"></textarea><label for="finaltwo">2. Seleccioná cinco fragmentos de los materiales: título, minuto, transcripción corta y explicación de la intención del hablante.</label><textarea class="extsave" id="finaltwo"></textarea><label for="finalthree">3. Redactá una conversación original de 12 intervenciones usando voseo de manera natural.</label><textarea class="extsave" id="finalthree"></textarea><label for="finalfour">4. Escribí una reflexión de 120–150 palabras: ¿qué te resultó más difícil del acento, del vocabulario y de la velocidad?</label><textarea class="extsave" id="finalfour"></textarea><label for="finalfive">5. Prepará una presentación oral de 3 minutos: ¿qué aprendiste y qué ejemplos auditivos usarías para demostrarlo?</label><textarea class="extsave" id="finalfive"></textarea></div><div class="tip">✅ Rúbrica sugerida: comprensión y pruebas del audio (40 %), vocabulario y voseo (25 %), claridad y argumentación (20 %), reflexión y pronunciación (15 %).</div><button class="extbutton" onclick="extExport()">⬇️ Entregar respuestas en archivo</button><button class="extbutton extghost" onclick="window.print()">🖨️ Guardar como PDF</button></section>
+<section class="card extension" id="mega-start"><h2>🧉 MÁS VOCES DE ARGENTINA · ESCUCHÁ Y PRACTICÁ</h2><p class="extlead">Desafíos de escucha argentina. Elegí un audio, escuchalo primero sin detenerte y después completá las tareas. Los contenidos de las entrevistas se responden con tus propias palabras: no hay supuestas transcripciones ni respuestas inventadas.</p><div class="tip">🎯 Ruta sugerida: 1. Predecí · 2. Escuchá una vez · 3. Buscá evidencias · 4. Repetí un fragmento · 5. Explicá y opiná. Usá auriculares y tomá notas.</div><nav><a href="#mega-grammar">🧩 Taller de lengua</a><a href="#mega-rubric">📋 Rúbrica</a><a href="#extended-start">↩ Volver a la primera ampliación</a></nav></section>
+<section class="card extension mega-track" id="audio10"><span class="pill">Audio 10 · B1–B2 · deporte</span><h2>⚽ Fútbol argentino: el superclásico</h2><p>Entrevista deportiva sobre Boca y River</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/por-seleccion-del-juez-boca-vrs-river_0.0-658.0.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/por-seleccion-del-juez-boca-vrs-river_0.0-658.0.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega10pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega10pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega10global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10details">3. ¿Qué opiniones expresa el entrevistado sobre la tarea arbitral?</label><textarea class="extsave" id="mega10details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10detail2">4. ¿En qué momento cambia el tono del hablante?</label><textarea class="extsave" id="mega10detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega10quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega10accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega10opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega10reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega10reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio11"><span class="pill">Audio 11 · B1–B2 · tecnología</span><h2>📱 Una aplicación para jugar al fútbol</h2><p>Entrevista al creador de una app para completar equipos</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/alan-fleischer-creador-de-una-app.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/alan-fleischer-creador-de-una-app.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega11pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega11pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega11global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11details">3. ¿Qué problema cotidiano busca resolver la aplicación?</label><textarea class="extsave" id="mega11details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11detail2">4. ¿Qué ventajas y límites menciona el creador?</label><textarea class="extsave" id="mega11detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega11quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega11accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega11opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega11reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega11reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio12"><span class="pill">Audio 12 · B2 · cultura</span><h2>🎭 Un actor habla de su trabajo</h2><p>Mario Pasik: «Confieso que he laburado mucho»</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/2026-10-29-Mario-Pasik.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/2026-10-29-Mario-Pasik.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega12pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega12pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega12global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12details">3. ¿Cómo describe el entrevistado su trayectoria?</label><textarea class="extsave" id="mega12details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12detail2">4. ¿Qué emoción aparece cuando habla de su oficio?</label><textarea class="extsave" id="mega12detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega12quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega12accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega12opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega12reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega12reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio13"><span class="pill">Audio 13 · B2–C1 · historia</span><h2>📻 La radio argentina a través de las décadas</h2><p>Una columna sobre historia de la música en la radio</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/46-Columna-23-10-2026.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/46-Columna-23-10-2026.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega13pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega13pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega13global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13details">3. ¿Qué cambios tecnológicos o culturales se comentan?</label><textarea class="extsave" id="mega13details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13detail2">4. ¿Qué diferencias se establecen entre épocas?</label><textarea class="extsave" id="mega13detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega13quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega13accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega13opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega13reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega13reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio14"><span class="pill">Audio 14 · B1–B2 · cultura</span><h2>🍳 La cocina como espacio personal</h2><p>Entrevista sobre el trabajo en la cocina</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/09/2026-09-17-Cultura-Nacional.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/09/2026-09-17-Cultura-Nacional.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega14pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega14pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega14global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14details">3. ¿Qué relación establece la persona con su trabajo?</label><textarea class="extsave" id="mega14details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14detail2">4. ¿Qué palabras transmiten entusiasmo o tranquilidad?</label><textarea class="extsave" id="mega14detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega14quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega14accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega14opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega14reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega14reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio15"><span class="pill">Audio 15 · B2 · cultura</span><h2>🎬 Vivir del arte y de la actuación</h2><p>Vanesa González habla de la actuación</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/09/Cultura-Nacional-2026-09-10-.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/09/Cultura-Nacional-2026-09-10-.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega15pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega15pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega15global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15details">3. ¿Qué motivos expresa para dedicarse a actuar?</label><textarea class="extsave" id="mega15details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15detail2">4. ¿Qué ejemplos utiliza para explicar su experiencia?</label><textarea class="extsave" id="mega15detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega15quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega15accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega15opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega15reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega15reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio16"><span class="pill">Audio 16 · B2–C1 · sociedad</span><h2>🚆 Transporte e infraestructura</h2><p>Entrevista a un periodista sobre el sistema de trenes español</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/entrevista-a-eduardo-reina-periodista-desde-espana_0.0-880.0.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/entrevista-a-eduardo-reina-periodista-desde-espana_0.0-880.0.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega16pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega16pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega16global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16details">3. ¿Qué problemas del transporte identifica el entrevistado?</label><textarea class="extsave" id="mega16details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16detail2">4. ¿En qué argumentos o ejemplos basa su opinión?</label><textarea class="extsave" id="mega16detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega16quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega16accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega16opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega16reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega16reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension mega-track" id="audio17"><span class="pill">Audio 17 · B1–B2 · tecnología</span><h2>📲 Tecnología para un evento masivo</h2><p>Creadores de una app para visitar Luján sin conexión</p><audio controls preload="none" class="extaudio"><source src="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/entrevista-a-los-creadores-de-la-app.mp3" type="audio/mpeg">Tu navegador no admite audio HTML5.</audio><p><a href="https://cdn.radionacional.com.ar/wp-content/uploads/2026/10/entrevista-a-los-creadores-de-la-app.mp3" target="_blank" rel="noopener noreferrer">🔗 Abrir audio en Radio Nacional</a></p><p class="arg"><strong>Escucha activa:</strong> identificá quién habla, qué afirma, qué ejemplo aporta y cómo expresa sus opiniones. Si el enlace no carga, abrilo directamente desde su fuente.</p><div class="exttask"><label for="mega17pre">1. Antes de escuchar: ¿qué tres palabras o ideas esperás oír?</label><textarea class="extsave" id="mega17pre" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17global">2. Primera escucha: resumí la idea principal en una sola oración.</label><textarea class="extsave" id="mega17global" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17details">3. ¿Por qué se destaca que la aplicación funciona sin conexión?</label><textarea class="extsave" id="mega17details" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17detail2">4. ¿Quiénes podrían beneficiarse de esta solución?</label><textarea class="extsave" id="mega17detail2" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17quote">5. Microdictado: elegí 8–15 segundos, anotá el minuto y transcribí exactamente lo que oís.</label><textarea class="extsave" id="mega17quote" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17accent">6. Elegí una palabra o frase pronunciada con rasgos argentinos. Describí qué escuchaste.</label><textarea class="extsave" id="mega17accent" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17opinion">7. ¿Estás de acuerdo con algún argumento o comentario? Justificá tu respuesta con una evidencia del audio.</label><textarea class="extsave" id="mega17opinion" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="exttask"><label for="mega17reform">8. Reformulá una idea del audio en español general, manteniendo su significado.</label><textarea class="extsave" id="mega17reform" placeholder="Escribí tu respuesta y guardala…"></textarea></div><div class="tip">🗣️ Extensión oral: grabá un resumen de 45 segundos y contrastá dos expresiones del audio con el español que conocés.</div></section>
+<section class="card extension" id="mega-grammar"><h2>🧩 Taller intensivo de lengua rioplatense</h2><p>Ejercicios autocorregibles. Escribí la forma equivalente; se ignoran mayúsculas y tildes para revisar las respuestas.</p><h3>Actividad A · Decodificá expresiones argentinas</h3><div id="megavocab" class="mega-exercise-list"></div><h3>Actividad B · Transformá al voseo</h3><div id="megavoseo" class="mega-exercise-list"></div><h3>Actividad C · El desafío de la entonación</h3><div class="grid"><div class="exttask"><label for="inton1">¿Cómo cambia la entonación de «¿Posta?» según exprese sorpresa o desconfianza? Da dos ejemplos.</label><textarea class="extsave" id="inton1"></textarea></div><div class="exttask"><label for="inton2">Compará un sonido «ll/y» de un audio con la pronunciación de tu variedad de español.</label><textarea class="extsave" id="inton2"></textarea></div><div class="exttask"><label for="inton3">Escribí un mini diálogo de 6 intervenciones con voseo y al menos 4 expresiones vistas.</label><textarea class="extsave" id="inton3"></textarea></div></div></section>
+<section class="card extension" id="mega-rubric"><h2>📋 Rúbrica de autocontrol</h2><p>Marcá lo que lograste al terminar.</p><div class="grid">
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub1" style="width:24px;height:24px;vertical-align:middle"> Identifiqué ideas principales sin leer transcripciones.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub2" style="width:24px;height:24px;vertical-align:middle"> Encontré detalles y evidencias en los audios.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub3" style="width:24px;height:24px;vertical-align:middle"> Interpreté al menos 10 expresiones argentinas.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub4" style="width:24px;height:24px;vertical-align:middle"> Reconocí el uso del voseo en contexto.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub5" style="width:24px;height:24px;vertical-align:middle"> Comparé dos entrevistas con argumentos claros.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub6" style="width:24px;height:24px;vertical-align:middle"> Escribí y revisé un texto coherente.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub7" style="width:24px;height:24px;vertical-align:middle"> Puedo resumir oralmente un audio auténtico.</label>
+<label class="exttask"><input type="checkbox" class="extsave" id="megarub8" style="width:24px;height:24px;vertical-align:middle"> Usé estrategias de escucha y anoté mis dificultades.</label>
+</div><p class="tip">Las respuestas abiertas necesitan revisión de la profesora. Los ejercicios de lengua sí ofrecen corrección automática.</p><button class="extbutton" onclick="extSave()">💾 Guardar todo</button> <button class="extbutton" onclick="extExport()">⬇️ Exportar respuestas JSON</button> <button class="extbutton" onclick="window.print()">🖨️ Imprimir o guardar PDF</button></section>
+</main>
+<script>
+let score=0;
+function add(n){score+=n;document.getElementById('score').textContent=score}
+function pick(el,ok){el.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('good','bad'));el.classList.add(ok?'good':'bad');if(ok&&!el.dataset.hit){add(10);el.dataset.hit=1}}
+function softPick(el){el.classList.toggle('good');if(el.classList.contains('good')&&!el.dataset.hit){add(2);el.dataset.hit=1}}
+function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function checkAnswers(sec){sec.querySelectorAll('[data-answer]').forEach(i=>{let ok=norm(i.value)==norm(i.dataset.answer);i.style.background=ok?'#dcf7e7':'#ffe7ea';if(ok&&!i.dataset.hit){add(5);i.dataset.hit=1}})}
+function finish(n){add(n*3);let x=document.getElementById('finish');x.classList.remove('hidden');x.textContent=n>=4?'¡Muy bien! Ya estás procesando mucho más que palabras sueltas: contexto, ritmo e intención.':'Buen entrenamiento: repetí mañana solo los fragmentos que hoy fueron más difíciles.'}
+
+const extVocab=[['guita','dinero'],['laburo','trabajo'],['quilombo','lío'],['posta','de verdad'],['pibe','chico'],['bancar','apoyar'],['re','muy'],['dale','de acuerdo']];
+const extVoseo=[['Tú tienes tiempo.','Vos tenés tiempo.'],['Tú quieres venir.','Vos querés venir.'],['Tú puedes ayudar.','Vos podés ayudar.'],['Tú eres simpático.','Vos sos simpático.'],['Tú hablas español.','Vos hablás español.'],['Tú comes tarde.','Vos comés tarde.'],['Tú vives cerca.','Vos vivís cerca.'],['¡Ven aquí!','¡Vení acá!']];
+const escapeExt=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function extMakeTasks(items,where,prefix){document.getElementById(where).innerHTML=items.map((x,i)=>`<div class="exttask"><label for="${prefix}${i}">${i+1}. ${escapeExt(x[0])}</label><input class="extsave extinput" id="${prefix}${i}" data-answer="${escapeExt(x[1])}" placeholder="Escribí tu respuesta"><button class="extbutton" onclick="extCheckText('${prefix}${i}',this)">Comprobar</button><div class="feedback" aria-live="polite"></div></div>`).join('')}
+function extNorm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[¡!¿?.,]/g,'').trim().replace(/\s+/g,' ')}
+function extCheckText(id,btn){let x=document.getElementById(id),ok=extNorm(x.value)===extNorm(x.dataset.answer);x.classList.toggle('extcorrect',ok);x.classList.toggle('extwrong',!ok);btn.nextElementSibling.textContent=ok?'✅ ¡Bien!':'💡 Respuesta modelo: '+x.dataset.answer;extProgress();extSave(true)}
+function extCheckRadio(name,btn){let a=document.querySelector(`input[name="${name}"]:checked`);let f=btn.nextElementSibling;if(!a){f.textContent='Elegí una respuesta.';return}let ok=a.value===a.dataset.correct;f.textContent=ok?'✅ Identificaste el tema anunciado.':'🔁 Probá de nuevo: consultá el título y la introducción.';extProgress();extSave(true)}
+function extFields(){return [...document.querySelectorAll('.extsave')]}
+function extGet(){let r={};extFields().forEach(x=>{if(x.type==='radio'){if(x.checked)r[x.name]=x.value}else if(x.type==='checkbox')r[x.id]=x.checked;else r[x.id]=x.value});return r}
+function extProgress(){let a=extFields().filter(x=>x.type!=='radio'),rn=[...new Set(extFields().filter(x=>x.type==='radio').map(x=>x.name))],filled=a.filter(x=>x.type==='checkbox'?x.checked:x.value.trim()).length+rn.filter(n=>document.querySelector(`input[name="${n}"]:checked`)).length,total=a.length+rn.length;document.getElementById('extprogressText').textContent=filled+'/'+total;document.getElementById('extprogressBar').style.width=(total?100*filled/total:0)+'%'}
+function extSave(silent=false){try{localStorage.setItem('escucha_argentina_extension_v1',JSON.stringify(extGet()));if(!silent)document.getElementById('extstatus').textContent='✅ Respuestas guardadas en este navegador.'}catch(e){document.getElementById('extstatus').textContent='No se pudo guardar automáticamente; usá Exportar respuestas.'}extProgress()}
+function extLoad(){try{let data=JSON.parse(localStorage.getItem('escucha_argentina_extension_v1')||'{}');extFields().forEach(x=>{if(x.type==='radio')x.checked=data[x.name]===x.value;else if(Object.hasOwn(data,x.id)){if(x.type==='checkbox')x.checked=!!data[x.id];else x.value=data[x.id]}})}catch(e){}extProgress()}
+function extExport(){extSave(true);let payload={titulo:'ESCUCHÁ ARGENTINA · Laboratorio extendido',fecha:new Date().toISOString(),respuestas:extGet()};let blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='escucha_argentina_respuestas.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function extReset(){if(!confirm('¿Borrar las respuestas de estas actividades?'))return;extFields().forEach(x=>{if(x.type==='radio')x.checked=false;else if(x.type==='checkbox')x.checked=false;else x.value='';x.classList.remove('extcorrect','extwrong')});localStorage.removeItem('escucha_argentina_extension_v1');document.querySelectorAll('.extension .feedback').forEach(x=>x.textContent='');extProgress();document.getElementById('extstatus').textContent='Respuestas restablecidas.'}
+extMakeTasks(extVocab,'vocabtasks','voc');extMakeTasks(extVoseo,'voseotasks','vos');extLoad();document.querySelectorAll('.extsave').forEach(x=>x.addEventListener('input',()=>extSave(true)));document.querySelectorAll('.extsave[type=radio]').forEach(x=>x.addEventListener('change',()=>extSave(true)));
+
+const megaVocab=[["Estoy sin un mango.", "No tengo dinero."], ["Ese pibe es un capo.", "Ese chico es muy bueno en lo que hace."], ["¡Qué bajón!", "¡Qué decepción!"], ["Me copa esa idea.", "Me gusta mucho esa idea."], ["No me chamuyes.", "No intentes engañarme con palabras."], ["Dame una mano.", "Ayudame."], ["Ese lugar queda lejos, che.", "Ese lugar está lejos, oye."], ["Me re colgué.", "Me distraje mucho / me olvidé."], ["No tengo ganas de laburar.", "No tengo ganas de trabajar."], ["¿Me bancás un segundo?", "¿Me esperás un segundo?"], ["Es una pavada.", "Es una tontería."], ["¡Qué quilombo!", "¡Qué lío!"]];
+const megaVoseo=[["Tú vienes mañana.", "Vos venís mañana."], ["Tú dices la verdad.", "Vos decís la verdad."], ["Tú haces la tarea.", "Vos hacés la tarea."], ["Tú sales temprano.", "Vos salís temprano."], ["Tú conoces Buenos Aires.", "Vos conocés Buenos Aires."], ["Tú piensas mucho.", "Vos pensás mucho."], ["¿Tú duermes bien?", "¿Vos dormís bien?"], ["¡Habla más despacio!", "¡Hablá más despacio!"], ["¡Come tranquilo!", "¡Comé tranquilo!"], ["¡Escribe tu nombre!", "¡Escribí tu nombre!"]];
+extMakeTasks(megaVocab,"megavocab","megavoc");extMakeTasks(megaVoseo,"megavoseo","megavos");extLoad();document.querySelectorAll("#mega-start ~ .extension .extsave").forEach(x=>{x.addEventListener("input",()=>extSave(true));x.addEventListener("change",()=>extSave(true))});
+</script>
+</body></html>
